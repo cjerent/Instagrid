@@ -69,7 +69,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="ZAl-h7-Liq" userLabel="BottomIconStackView">
                                         <rect key="frame" x="0.0" y="606" width="355" height="80"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wff-Eh-3jZ">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wff-Eh-3jZ" userLabel="LeftButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="105.66666666666667" height="80"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
@@ -80,7 +80,7 @@
                                                     <backgroundConfiguration key="background" image="Layout 1" imageContentMode="scaleAspectFit" strokeWidth="0.0" strokeOutset="0.0"/>
                                                 </buttonConfiguration>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seB-F9-nAJ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seB-F9-nAJ" userLabel="CenteredButton">
                                                 <rect key="frame" x="124.66666666666666" y="0.0" width="105.66666666666666" height="80"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
@@ -90,8 +90,8 @@
                                                     <backgroundConfiguration key="background" image="Layout 2" imageContentMode="scaleAspectFit"/>
                                                 </buttonConfiguration>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAz-X5-clw">
-                                                <rect key="frame" x="249.33333333333329" y="0.0" width="105.66666666666666" height="80"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAz-X5-clw" userLabel="RightButton">
+                                                <rect key="frame" x="249.33333333333326" y="0.0" width="105.66666666666669" height="80"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                 </accessibility>
@@ -122,11 +122,6 @@
                             <constraint firstItem="sGd-Le-jVE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="md4-iF-DDS"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="CenterButton" destination="seB-F9-nAJ" id="p7I-fI-2iZ"/>
-                        <outlet property="LeftButton" destination="wff-Eh-3jZ" id="agy-Ne-QSh"/>
-                        <outlet property="RightButton" destination="yAz-X5-clw" id="meX-bZ-Wci"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
