@@ -26,5 +26,7 @@
 		<string>ThirstySoftRegular.otf</string>
 		<string>Delm-Medium.otf</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please give permission !</string>
 </dict>
 </plist>
