@@ -27,6 +27,6 @@
 		<string>Delm-Medium.otf</string>
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Please give permission !</string>
+	<string>We need to import photos from your gallery</string>
 </dict>
 </plist>

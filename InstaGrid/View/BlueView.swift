@@ -23,26 +23,34 @@ class BlueView: UIView {
             setStyle(style: style)
         }
     }
+
     
     private func setStyle(style: Style) {
-        switch style {
-            case .right:
-                topLeft.isHidden = false
-                topRight.isHidden = false
-                bottomLeft.isHidden = false
-                bottomRight.isHidden = false
-            case .center:
-                topLeft.isHidden = false
-                topRight.isHidden = false
-                bottomLeft.isHidden = false
-                bottomRight.isHidden = true
-            case .left:
-                topLeft.isHidden = false
-                topRight.isHidden = true
-                bottomLeft.isHidden = false
-                bottomRight.isHidden = false
-                
+        UIView.animate(withDuration: 0.3){
+            switch style {
+                case .right:
+                    self.topLeft.isHidden = false
+                    self.topRight.isHidden = false
+                    self.bottomLeft.isHidden = false
+                    self.bottomRight.isHidden = false
+                case .center:
+                    self.topLeft.isHidden = false
+                    self.topRight.isHidden = false
+                    self.bottomLeft.isHidden = false
+                    self.bottomRight.isHidden = true
+                case .left:
+                    self.topLeft.isHidden = false
+                    self.topRight.isHidden = true
+                    self.bottomLeft.isHidden = false
+                    self.bottomRight.isHidden = false
+            }
         }
+        
     }
     
-}
+  
+    }
+        
+
+    
+

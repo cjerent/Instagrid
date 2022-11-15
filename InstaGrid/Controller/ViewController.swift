@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var leftButton: UIButton!
     
     @IBOutlet weak var centerButton: UIButton!
@@ -17,10 +18,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var blueView: BlueView!
     
 
+
+    @IBOutlet weak var photoPreview: UIImageView?
+
+    private var photoPicker = UIImagePickerController()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        photoPicker.delegate = self
+        
 
- }
+        
+    }
     
     private func selected(btn: UIButton) {
         UIView.animate(withDuration: 0.3){
@@ -30,7 +40,7 @@ class ViewController: UIViewController {
     }
     
     private func unSelected(btn1: UIButton, btn2: UIButton){
-
+        
         UIView.animate(withDuration: 0.3){
             btn1.isSelected = false
             btn2.isSelected = false
@@ -39,7 +49,7 @@ class ViewController: UIViewController {
         }
         
     }
-
+    
     @IBAction func didTapLeftButton() {
         applyLeftLayout()
     }
@@ -59,7 +69,7 @@ class ViewController: UIViewController {
         blueView.style = .center
         selected(btn: centerButton)
         unSelected(btn1: leftButton, btn2: rightButton)
-
+        
     }
     
     @IBAction func didTapRightButton() {
@@ -71,5 +81,29 @@ class ViewController: UIViewController {
         selected(btn: rightButton)
         unSelected(btn1: centerButton, btn2: leftButton)
     }
-}
+    
+    @IBAction func pickPhotos(_ sender: UIButton){
+            photoPicker.sourceType = .photoLibrary
+            photoPicker.allowsEditing = false
+            present(photoPicker, animated: true, completion: nil)
 
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedPhoto = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            photoPreview?.contentMode = .scaleAspectFill
+            photoPreview?.clipsToBounds = true
+            photoPreview?.image = pickedPhoto
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
