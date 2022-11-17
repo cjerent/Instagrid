@@ -68,36 +68,48 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QZ5-Ve-4iC" userLabel="TopSquareStackView">
                                                 <rect key="frame" x="15" y="15" width="265" height="125"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4S-rQ-YAV" userLabel="TopLeft" customClass="UIImageView">
+                                                    <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4S-rQ-YAV" userLabel="TopLeft" customClass="UIButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bJ-lN-NgD">
                                                                 <rect key="frame" x="45.5" y="45.5" width="34.5" height="34.5"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                                </accessibility>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="2bJ-lN-NgD" secondAttribute="height" multiplier="1:1" id="TUJ-QN-O3o"/>
+                                                                    <constraint firstAttribute="width" secondItem="2bJ-lN-NgD" secondAttribute="height" multiplier="1:1" id="0yh-ds-PnO"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title=" " backgroundImage="Plus"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title=" ">
-                                                                    <backgroundConfiguration key="background" image="Plus"/>
+                                                                    <backgroundConfiguration key="background" image="Plus" strokeOutset="80"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
-                                                                    <action selector="pickPhotos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PRH-Kh-E3n"/>
+                                                                    <action selector="pickTopLeft" destination="BYZ-38-t0r" eventType="touchUpInside" id="wGu-G4-I31"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" button="YES"/>
+                                                        </accessibility>
                                                         <constraints>
                                                             <constraint firstItem="2bJ-lN-NgD" firstAttribute="centerY" secondItem="b4S-rQ-YAV" secondAttribute="centerY" id="1IB-uN-XP3"/>
                                                             <constraint firstItem="2bJ-lN-NgD" firstAttribute="centerX" secondItem="b4S-rQ-YAV" secondAttribute="centerX" id="8oJ-Tg-Dc2"/>
                                                             <constraint firstAttribute="width" secondItem="b4S-rQ-YAV" secondAttribute="height" multiplier="1:1" id="cjj-FO-8A6"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="pickTopLeft" destination="BYZ-38-t0r" eventType="touchUpInside" id="psY-tR-jzc"/>
+                                                        </connections>
                                                     </view>
-                                                    <view clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryp-cp-rZf" userLabel="TopRight" customClass="UIImageView">
+                                                    <view clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryp-cp-rZf" userLabel="TopRight" customClass="UIButton">
                                                         <rect key="frame" x="140" y="0.0" width="125" height="125"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oe3-1X-QVu">
                                                                 <rect key="frame" x="45.5" y="45.5" width="34.5" height="34.5"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                                </accessibility>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="Oe3-1X-QVu" secondAttribute="height" multiplier="1:1" id="FBe-LA-A1A"/>
                                                                 </constraints>
@@ -105,6 +117,9 @@
                                                                 <buttonConfiguration key="configuration" style="plain" title=" ">
                                                                     <backgroundConfiguration key="background" image="Plus"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="pickTopRight" destination="BYZ-38-t0r" eventType="touchUpInside" id="NUW-zO-fbw"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,17 +128,23 @@
                                                             <constraint firstItem="Oe3-1X-QVu" firstAttribute="centerX" secondItem="ryp-cp-rZf" secondAttribute="centerX" id="ZaM-WM-8E9"/>
                                                             <constraint firstAttribute="width" secondItem="ryp-cp-rZf" secondAttribute="height" multiplier="1:1" id="uc2-TM-ibm"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="pickTopRight" destination="BYZ-38-t0r" eventType="touchUpInside" id="PyD-kt-xLx"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EtU-MM-ruC" userLabel="BottomSquareStackView">
                                                 <rect key="frame" x="15" y="155" width="265" height="125"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYn-WY-CiS" userLabel="BottomLeft" customClass="UIImageView">
+                                                    <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYn-WY-CiS" userLabel="BottomLeft" customClass="UIButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pq0-Bg-qXl">
                                                                 <rect key="frame" x="45.5" y="45.5" width="34.5" height="34.5"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                                </accessibility>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="pq0-Bg-qXl" secondAttribute="height" multiplier="1:1" id="9ho-hf-paM"/>
                                                                 </constraints>
@@ -131,6 +152,9 @@
                                                                 <buttonConfiguration key="configuration" style="plain" title=" ">
                                                                     <backgroundConfiguration key="background" image="Plus"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="pickBottomLeft" destination="BYZ-38-t0r" eventType="touchUpInside" id="6qq-7O-Sc2"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,12 +163,18 @@
                                                             <constraint firstItem="pq0-Bg-qXl" firstAttribute="centerX" secondItem="uYn-WY-CiS" secondAttribute="centerX" id="bLj-Ss-NuW"/>
                                                             <constraint firstItem="pq0-Bg-qXl" firstAttribute="centerY" secondItem="uYn-WY-CiS" secondAttribute="centerY" id="j0d-XP-wcg"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="pickBottomLeft" destination="BYZ-38-t0r" eventType="touchUpInside" id="d2f-GZ-ZRb"/>
+                                                        </connections>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxe-tZ-rc6" userLabel="BottomRight" customClass="UIImageView">
+                                                    <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxe-tZ-rc6" userLabel="BottomRight" customClass="UIButton">
                                                         <rect key="frame" x="140" y="0.0" width="125" height="125"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzs-nh-bdr">
                                                                 <rect key="frame" x="45.5" y="45.5" width="34.5" height="34.5"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                                </accessibility>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="yzs-nh-bdr" secondAttribute="height" multiplier="1:1" id="A29-d8-Aga"/>
                                                                 </constraints>
@@ -152,6 +182,9 @@
                                                                 <buttonConfiguration key="configuration" style="plain" title=" ">
                                                                     <backgroundConfiguration key="background" image="Plus"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="pickBottomRight" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qeu-FP-3QC"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -160,6 +193,9 @@
                                                             <constraint firstItem="yzs-nh-bdr" firstAttribute="centerX" secondItem="Rxe-tZ-rc6" secondAttribute="centerX" id="Eqs-7h-CXs"/>
                                                             <constraint firstItem="yzs-nh-bdr" firstAttribute="centerY" secondItem="Rxe-tZ-rc6" secondAttribute="centerY" id="RW4-nD-s9k"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="pickBottomRight" destination="BYZ-38-t0r" eventType="touchUpInside" id="JhS-Xf-zpa"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                             </stackView>
@@ -182,8 +218,8 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <outlet property="BottomLeft" destination="uYn-WY-CiS" id="udc-na-6Jd"/>
-                                            <outlet property="BottomRight" destination="Rxe-tZ-rc6" id="dbk-8i-7AA"/>
+                                            <outlet property="bottomLeft" destination="uYn-WY-CiS" id="8w6-By-xTW"/>
+                                            <outlet property="bottomRight" destination="Rxe-tZ-rc6" id="kUA-3f-e3n"/>
                                             <outlet property="topLeft" destination="b4S-rQ-YAV" id="Gsw-wf-lFE"/>
                                             <outlet property="topRight" destination="ryp-cp-rZf" id="mxw-FX-0SE"/>
                                         </connections>
@@ -366,10 +402,17 @@
                     </view>
                     <connections>
                         <outlet property="blueView" destination="qUG-uq-tHh" id="Gax-9U-pJr"/>
+                        <outlet property="bottomLeftPlus" destination="pq0-Bg-qXl" id="Z4c-fR-lV8"/>
+                        <outlet property="bottomLeftSquare" destination="uYn-WY-CiS" id="ZeL-CV-UiG"/>
+                        <outlet property="bottomRightPlus" destination="yzs-nh-bdr" id="5uc-U3-eYa"/>
+                        <outlet property="bottomRightSquare" destination="Rxe-tZ-rc6" id="MnR-TJ-0fK"/>
                         <outlet property="centerButton" destination="seB-F9-nAJ" id="HtJ-Jj-hzG"/>
                         <outlet property="leftButton" destination="wff-Eh-3jZ" id="Zy0-Z7-fXU"/>
-                        <outlet property="photoPreview" destination="b4S-rQ-YAV" id="U4p-h8-vm5"/>
                         <outlet property="rightButton" destination="yAz-X5-clw" id="Tgk-AP-9ll"/>
+                        <outlet property="topLeftPlus" destination="2bJ-lN-NgD" id="J7p-0I-yun"/>
+                        <outlet property="topLeftSquare" destination="b4S-rQ-YAV" id="H7U-GC-oIg"/>
+                        <outlet property="topRightPlus" destination="Oe3-1X-QVu" id="vyR-ZV-ljH"/>
+                        <outlet property="topRightSquare" destination="ryp-cp-rZf" id="kSz-Oj-m6h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

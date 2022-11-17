@@ -13,6 +13,7 @@ class BlueView: UIView {
     @IBOutlet private var bottomLeft: UIView!
     @IBOutlet private var bottomRight: UIView!
     
+    var square: UIView!
     
     enum Style {
         case left, center, right
@@ -23,10 +24,10 @@ class BlueView: UIView {
             setStyle(style: style)
         }
     }
-
+    
     
     private func setStyle(style: Style) {
-        UIView.animate(withDuration: 0.3){
+        UIView.animate(withDuration: 0.1){
             switch style {
                 case .right:
                     self.topLeft.isHidden = false
@@ -44,13 +45,13 @@ class BlueView: UIView {
                     self.bottomLeft.isHidden = false
                     self.bottomRight.isHidden = false
             }
-        }
-        
+       }
     }
     
-  
-    }
-        
+    
+    
+}
 
-    
+
+
 
