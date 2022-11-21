@@ -13,21 +13,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var centerButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
+    
     // BlueView customized view
     @IBOutlet weak var blueView: BlueView!
+    
     //BlueView buttons
     @IBOutlet var topLeftSquare: UIButton!
     @IBOutlet var topRightSquare: UIButton!
     @IBOutlet var bottomLeftSquare: UIButton!
     @IBOutlet var bottomRightSquare: UIButton!
-    
     private var currentSquare: UIButton!
     
     @IBOutlet var topLeftPlus: UIButton!
     @IBOutlet var topRightPlus: UIButton!
     @IBOutlet var bottomLeftPlus: UIButton!
     @IBOutlet var bottomRightPlus: UIButton!
-    
     private var currentPlus: UIButton!
     
     private var photoPickerTopLeft = UIImagePickerController()
@@ -35,7 +35,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     private var photoPickerBottomLeft = UIImagePickerController()
     private var photoPickerBottomRight = UIImagePickerController()
     
-
+   
+    @IBOutlet weak var BlueStackView: UIStackView!
+    private var initialCenter: CGPoint = .zero
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +46,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         photoPickerTopRight.delegate = self
         photoPickerBottomLeft.delegate = self
         photoPickerBottomRight.delegate = self
-    
+        
+        
     }
-    
-    
     
     /// Layout button selected
     /// - Parameter btn: left, center or right button
@@ -79,7 +81,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /// Apply left layout
     private func applyLeftLayout() {
-       
+        
         blueView.style = .left
         selected(btn: leftButton)
         unSelected(btn1: centerButton, btn2: rightButton)
@@ -138,7 +140,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickPhotos(picker: photoPickerTopRight)
         currentSquare = topRightSquare
         currentPlus = topRightPlus
-
+        
     }
     
     /// pick bottom left square or bottom left plus button
@@ -146,7 +148,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickPhotos(picker: photoPickerBottomLeft)
         currentSquare = bottomLeftSquare
         currentPlus = bottomLeftPlus
-
+        
     }
     
     /// pick bottom right square or bottom right plus button
@@ -154,10 +156,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickPhotos(picker: photoPickerBottomRight)
         currentSquare = bottomRightSquare
         currentPlus = bottomRightPlus
-
+        
     }
     
-
+    
     /// Preview image
     /// - Parameters:
     ///   - picker: IUImagePickerController
@@ -180,7 +182,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
     
+
+    @IBAction func swipeBlueView(_ sender: UIPanGestureRecognizer) {
+        switch sender.state {
+            case .began:
+                initialCenter = BlueStackView.center
+            case .changed:
+                transformBlueView(gesture: sender)
+            case .cancelled, .ended:
+                UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [.curveEaseInOut]) {
+                    self.BlueStackView.center = self.view.center
+                }
+            default:
+                break
+        }
+    }
     
     
+    private func transformBlueView(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: BlueStackView)
+        BlueStackView.center = CGPoint(x: initialCenter.x + translation.x, y: initialCenter.y + translation.y)
+
+        
+    }
     
 }

@@ -60,6 +60,7 @@
                                                 </variation>
                                             </label>
                                         </subviews>
+                                        <gestureRecognizers/>
                                         <variation key="heightClass=compact" axis="vertical"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUG-uq-tHh" userLabel="BlueView" customClass="BlueView" customModule="InstaGrid" customModuleProvider="target">
@@ -201,6 +202,7 @@
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.060883924370000002" green="0.3997497559" blue="0.59501546620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="EtU-MM-ruC" secondAttribute="trailing" constant="15" id="2EU-sm-I3v"/>
                                             <constraint firstAttribute="bottom" secondItem="EtU-MM-ruC" secondAttribute="bottom" constant="15" id="3yI-Le-WQ2"/>
@@ -225,10 +227,14 @@
                                         </connections>
                                     </view>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="qUG-uq-tHh" secondAttribute="trailing" id="UgV-Nh-fP6"/>
                                 </constraints>
                                 <variation key="heightClass=compact" axis="horizontal"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vQP-gh-Ntq" appends="YES" id="g5a-g5-Jem"/>
+                                </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZAl-h7-Liq" userLabel="BottomIconStackView">
                                 <rect key="frame" x="48" y="557" width="279" height="80"/>
@@ -401,6 +407,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="BlueStackView" destination="aog-Ib-ojZ" id="eev-cR-8nq"/>
                         <outlet property="blueView" destination="qUG-uq-tHh" id="Gax-9U-pJr"/>
                         <outlet property="bottomLeftPlus" destination="pq0-Bg-qXl" id="Z4c-fR-lV8"/>
                         <outlet property="bottomLeftSquare" destination="uYn-WY-CiS" id="ZeL-CV-UiG"/>
@@ -416,6 +423,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="vQP-gh-Ntq">
+                    <scrollTypes key="allowedScrollTypesMask" discrete="YES"/>
+                    <connections>
+                        <action selector="swipeBlueView:" destination="BYZ-38-t0r" id="Of3-7o-RU7"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="51.627906976744185" y="0.0"/>
         </scene>
