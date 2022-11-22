@@ -35,9 +35,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     private var photoPickerBottomLeft = UIImagePickerController()
     private var photoPickerBottomRight = UIImagePickerController()
     
-   
+    
     @IBOutlet weak var BlueStackView: UIStackView!
     private var initialCenter: CGPoint = .zero
+    
+  
     
     
     override func viewDidLoad() {
@@ -46,6 +48,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         photoPickerTopRight.delegate = self
         photoPickerBottomLeft.delegate = self
         photoPickerBottomRight.delegate = self
+        BlueStackView.center = view.center
         
         
     }
@@ -182,28 +185,77 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
     
-
-    @IBAction func swipeBlueView(_ sender: UIPanGestureRecognizer) {
+    
+    @IBAction func didPan(_ sender: UIPanGestureRecognizer) {
+        
         switch sender.state {
             case .began:
                 initialCenter = BlueStackView.center
             case .changed:
-                transformBlueView(gesture: sender)
+                swipeBlueView(gesture: sender)
             case .cancelled, .ended:
-                UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [.curveEaseInOut]) {
-                    self.BlueStackView.center = self.view.center
+                if UIDevice.current.orientation == UIDeviceOrientation.portrait {
+                    UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [.curveEaseInOut]) {
+                        self.BlueStackView.center = self.view.center
+                        self.BlueStackView.alpha = 1
+                }
+
+                } else {
+                    UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [.curveEaseInOut]) {
+                        self.BlueStackView.center = self.initialCenter
+                        self.BlueStackView.alpha = 1
+                    }
                 }
             default:
                 break
         }
-    }
-    
-    
-    private func transformBlueView(gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: BlueStackView)
-        BlueStackView.center = CGPoint(x: initialCenter.x + translation.x, y: initialCenter.y + translation.y)
-
+        
         
     }
     
+    
+    private func swipeBlueView(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: BlueStackView)
+        let velocity = gesture.velocity(in: view)
+        if UIDevice.current.orientation == UIDeviceOrientation.portrait {
+            if velocity.y < 0 {
+                animateSwipe()
+                shareSwipe()
+                
+            } else {
+                BlueStackView.center = CGPoint(x: initialCenter.x + translation.x, y: initialCenter.y + translation.y)
+            }
+        } else {
+            
+            if velocity.x < 0 {
+                animateSwipe()
+                shareSwipe()
+                
+            } else {
+                BlueStackView.center = CGPoint(x: initialCenter.x + translation.x, y: initialCenter.y + translation.y)
+            }
+        }
+   
+    }
+    
+
+    
+   private func animateSwipe() {
+       UIView.animate(withDuration: 0.5) {
+            self.BlueStackView.alpha = 0
+            
+        }
+        
+    }
+    
+   private func shareSwipe() {
+        let blueViewImage = blueView.toImage()
+        let vc = UIActivityViewController(activityItems: [blueViewImage], applicationActivities: nil)
+        vc.popoverPresentationController?.sourceView = self.blueView
+        present(vc, animated: true)
+       
+    }
+    
 }
+
+

@@ -13,7 +13,6 @@ class BlueView: UIView {
     @IBOutlet private var bottomLeft: UIView!
     @IBOutlet private var bottomRight: UIView!
     
-    var square: UIView!
     
     enum Style {
         case left, center, right
@@ -47,6 +46,14 @@ class BlueView: UIView {
                     self.bottomRight.isHidden = false
             }
        }
+    }
+    
+    func toImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0)
+               self.drawHierarchy(in: self.bounds, afterScreenUpdates: false)
+               let snapshotImageFromMyView = UIGraphicsGetImageFromCurrentImageContext()
+               UIGraphicsEndImageContext()
+               return snapshotImageFromMyView!
     }
     
     
