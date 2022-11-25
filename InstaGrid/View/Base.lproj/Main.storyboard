@@ -233,7 +233,7 @@
                                 </constraints>
                                 <variation key="heightClass=compact" axis="horizontal"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="wYz-VG-nB5" appends="YES" id="TfX-Ax-INl"/>
+                                    <outletCollection property="gestureRecognizers" destination="wQY-xV-jbw" appends="YES" id="M72-5a-sob"/>
                                 </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZAl-h7-Liq" userLabel="BottomIconStackView">
@@ -274,6 +274,7 @@
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" image="YES"/>
                                         </accessibility>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="seB-F9-nAJ" secondAttribute="height" multiplier="1:1" id="6A8-c8-E4o"/>
                                             <constraint firstAttribute="width" constant="80" id="HXm-5R-XLB"/>
@@ -421,11 +422,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="wYz-VG-nB5">
+                <swipeGestureRecognizer direction="up" id="wQY-xV-jbw">
                     <connections>
-                        <action selector="didPan:" destination="BYZ-38-t0r" id="tbV-jj-LxN"/>
+                        <action selector="didSwipe:" destination="BYZ-38-t0r" id="qJM-H4-atS"/>
                     </connections>
-                </panGestureRecognizer>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="51.627906976744185" y="0.0"/>
         </scene>
