@@ -25,9 +25,10 @@ class BlueView: UIView {
     }
     
     
+    /// Set blueView layout
+    /// - Parameter style: Style
     private func setStyle(style: Style) {
         UIView.animate(withDuration: 0.4){
-    
             switch style {
                 case .right:
                     self.topLeft.isHidden = false
@@ -45,21 +46,24 @@ class BlueView: UIView {
                     self.bottomLeft.isHidden = false
                     self.bottomRight.isHidden = false
             }
-       }
+        }
     }
-    
-    func toImage() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0)
-               self.drawHierarchy(in: self.bounds, afterScreenUpdates: false)
-               let snapshotImageFromMyView = UIGraphicsGetImageFromCurrentImageContext()
-               UIGraphicsEndImageContext()
-               return snapshotImageFromMyView!
-    }
-    
     
     
 }
 
+// UIView can be copy in image
+extension UIView {
+    
+    func toImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0)
+        self.drawHierarchy(in: self.bounds, afterScreenUpdates: false)
+        let snapshotImageFromMyView = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return snapshotImageFromMyView!
+    }
+    
+}
 
 
 

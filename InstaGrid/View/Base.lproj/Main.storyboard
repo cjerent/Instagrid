@@ -66,7 +66,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUG-uq-tHh" userLabel="BlueView" customClass="BlueView" customModule="InstaGrid" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="69" width="350" height="350"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QZ5-Ve-4iC" userLabel="TopSquareStackView">
+                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QZ5-Ve-4iC" userLabel="TopSquareStackView">
                                                 <rect key="frame" x="15" y="15" width="320" height="152.33333333333334"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4S-rQ-YAV" userLabel="TopLeft" customClass="UIButton">
@@ -135,7 +135,7 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EtU-MM-ruC" userLabel="BottomSquareStackView">
+                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EtU-MM-ruC" userLabel="BottomSquareStackView">
                                                 <rect key="frame" x="15" y="182.33333333333331" width="320" height="152.66666666666669"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYn-WY-CiS" userLabel="BottomLeft" customClass="UIButton">
@@ -405,7 +405,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="BlueStackView" destination="aog-Ib-ojZ" id="eev-cR-8nq"/>
+                        <outlet property="blueStackView" destination="aog-Ib-ojZ" id="DSE-El-8gv"/>
                         <outlet property="blueView" destination="qUG-uq-tHh" id="Gax-9U-pJr"/>
                         <outlet property="bottomLeftPlus" destination="pq0-Bg-qXl" id="Z4c-fR-lV8"/>
                         <outlet property="bottomLeftSquare" destination="uYn-WY-CiS" id="ZeL-CV-UiG"/>
