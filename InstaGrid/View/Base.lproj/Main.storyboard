@@ -234,6 +234,7 @@
                                 <variation key="heightClass=compact" axis="horizontal"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="wQY-xV-jbw" appends="YES" id="M72-5a-sob"/>
+                                    <outletCollection property="gestureRecognizers" destination="ZQd-OY-KP8" appends="YES" id="3bV-wA-bzf"/>
                                 </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZAl-h7-Liq" userLabel="BottomIconStackView">
@@ -424,7 +425,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="up" id="wQY-xV-jbw">
                     <connections>
-                        <action selector="didSwipe:" destination="BYZ-38-t0r" id="qJM-H4-atS"/>
+                        <action selector="didSwipePortrait:" destination="BYZ-38-t0r" id="euf-nY-lmX"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="ZQd-OY-KP8">
+                    <connections>
+                        <action selector="didSwipeLandscape:" destination="BYZ-38-t0r" id="R4K-vX-qA8"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>

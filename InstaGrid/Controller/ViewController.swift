@@ -188,82 +188,41 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
     
+
     
-    /// Pan Gesture Reconizer
-    /// - Parameter sender: UIPanGestureRecognizer
-//    @IBAction private func didPan(_ sender: UIPanGestureRecognizer) {
-//
-//        switch sender.state {
-//            case .began:
-//                initialCenter = blueStackView.center
-//            case .changed:
-//                moveBlueStackView(gesture: sender)
-//            case .cancelled, .ended:
-//                reinstateBlueStackViewPosition(gesture: sender)
-//            default:
-//                break
-//        }
-//    }
-    
-    @IBAction private func didSwipe(_ sender: UISwipeGestureRecognizer) {
-        var frame = blueStackView.frame
-        frame.origin.y -= 200.0
-        UIView.animate(withDuration: 0.25) {
-            self.blueStackView.frame = frame
-            self.blueStackView.alpha = 0
-        }
-    }
-    
-    
-    
-    /// Pan Gesture Translation
-    /// - Parameter gesture: UIPanGestureRecognizer
-    private func moveBlueStackView(gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: self.view)
-        
-        // If portrait orientation : swipe up
+    @IBAction private func didSwipePortrait(_ sender: UISwipeGestureRecognizer) {
         if UIDevice.current.orientation.isPortrait {
-            if translation.y < -250 {
-                animateSwipe()
-                swipeToShare()
-                
-            } else {
-                blueStackView.center = CGPoint(x: initialCenter.x, y: initialCenter.y + translation.y)
-            }
-            // If another orientation: swipe left
-        } else  {
             
-            if translation.x < -250 {
-                animateSwipe()
-                swipeToShare()
-                
-            } else {
-                blueStackView.center = CGPoint(x: initialCenter.x + translation.x, y: initialCenter.y)
+            var frame = blueStackView.frame
+            frame.origin.y -= 700.0
+            
+            UIView.animate(withDuration: 0.4) {
+                self.blueStackView.frame = frame
+                self.blueStackView.alpha = 0
             }
+            swipeToShare()
         }
+        
         
     }
     
-    /// Fade Animation for blue StackView
-    private func animateSwipe() {
-        UIView.animate(withDuration: 0.3) {
-            self.blueStackView.alpha = 0
+    @IBAction private func didSwipeLandscape(_ sender:UISwipeGestureRecognizer) {
+        if UIDevice.current.orientation.isLandscape {
+            initialCenter = blueStackView.center
+            
+            var frame = blueStackView.frame
+            frame.origin.x -= 700.0
+            
+            UIView.animate(withDuration: 0.4) {
+                self.blueStackView.frame = frame
+                self.blueStackView.alpha = 0
+            }
+            swipeToShare()
+            
+            
         }
     }
     
-    private func animateSwipeCxl() {
-        if UIDevice.current.orientation.isPortrait  {
-                          UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [.curveEaseInOut]) {
-                              self.blueStackView.center = self.view.center
-                              self.blueStackView.alpha = 1
-                      }
-        } else if UIDevice.current.orientation.isLandscape {
-                          UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [.curveEaseInOut]) {
-                              self.blueStackView.center = self.initialCenter
-                              self.blueStackView.alpha = 1
-                          }
-            }
-    }
     
     /// UIActivityViewController for swiped blue StackView
     private func swipeToShare() {
@@ -274,38 +233,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         vc.popoverPresentationController?.sourceView = self.blueView
         present(vc, animated: true)
         vc.completionWithItemsHandler = { activity, success, items, error in
-            self.reinstateBlueStackViewPositionAfterSharing()
-        }
-        
-    }
-    
-    func reinstateBlueStackViewPosition(gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: self.view)
-        if UIDevice.current.orientation.isPortrait {
-            if translation.y > 0 {
-                animateSwipeCxl()
-            }
-        } else if UIDevice.current.orientation.isLandscape {
-            if translation.x > 0 {
-                animateSwipeCxl()
-            }
+            self.reinstateBlueStackView()
         }
         
     }
     
     
-    func reinstateBlueStackViewPositionAfterSharing() {
+    private func reinstateBlueStackView() {
         
-        if UIDevice.current.orientation.isPortrait {
-            blueStackView.center.y = -200
-            animateSwipeCxl()
+        if UIDevice.current.orientation.isPortrait  {
+            blueStackView.center.y -= 700
+            reinstateAnimation()
+            
             
         } else if UIDevice.current.orientation.isLandscape {
-            
-            animateSwipeCxl()
-            
+            blueStackView.center.x -= 700
+            reinstateAnimation()
             
         }
+    }
+    
+    private func reinstateAnimation() {
+        if UIDevice.current.orientation.isPortrait  {
+            UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6) {
+                self.blueStackView.center = self.view.center
+                self.blueStackView.alpha = 1
+            }
+        } else if UIDevice.current.orientation.isLandscape {
+            UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6) {
+                self.blueStackView.center = self.initialCenter
+                self.blueStackView.alpha = 1
+            }
+            
+        }
+        
     }
     
 }
