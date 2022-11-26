@@ -28,7 +28,7 @@ class BlueView: UIView {
     /// Set blueView layout
     /// - Parameter style: Style
     private func setStyle(style: Style) {
-        UIView.animate(withDuration: 0.4){
+        UIView.animate(withDuration: 0.2){
             switch style {
                 case .right:
                     self.topLeft.isHidden = false
