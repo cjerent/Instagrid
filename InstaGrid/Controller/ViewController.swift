@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Layout choice buttons
@@ -37,9 +38,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBOutlet weak private var blueStackView: UIStackView!
-    private var initialCenter: CGPoint = .zero
-    
-    
+    private var initialCenter: CGRect = .zero
     
     
     
@@ -52,8 +51,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         blueStackView.center = view.center
         
         
-        
     }
+    
+    
+    //======================
+    // MARK: - LAYOUT BUTTONS
+    //======================
     
     /// Layout button selected
     /// - Parameter btn: left, center or right button
@@ -118,20 +121,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         unSelected(btn1: centerButton, btn2: leftButton)
     }
     
-    /// Photo picker
-    /// - Parameter picker: UIImagePickerController variable
-    private func pickPhotos(picker: UIImagePickerController) {
-        picker.sourceType = .photoLibrary
-        picker.allowsEditing = false
-        present(picker, animated: true, completion: nil)
-        
-    }
     
-    /// Hide plus button when image preview
-    /// - Parameter button: button to hide
-    private func hidden(_ button : UIButton) {
-        button.isHidden = true
-    }
+    //======================
+    // MARK: - PHOTO PICKER
+    //======================
+    
     
     /// pick top left square or left plus button
     @IBAction private func pickTopLeft() {
@@ -164,20 +158,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    /// Photo picker
+    /// - Parameter picker: UIImagePickerController variable
+    private func pickPhotos(picker: UIImagePickerController) {
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+        
+    }
+    
+    /// Hide plus button when image preview
+    /// - Parameter button: button to hide
+    private func hidden(_ button : UIButton) {
+        button.isHidden = true
+    }
     
     /// Preview image
     /// - Parameters:
     ///   - picker: IUImagePickerController
     ///   - info: IUImagePickerController.infoKey
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let pickedPhoto = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        if let pickedPhoto = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             currentSquare.imageView?.contentMode = .scaleAspectFill
             currentSquare.imageView?.clipsToBounds = true
             currentSquare.setImage(pickedPhoto, for: .normal)
             hidden(currentPlus)
         }
-        
-        
         dismiss(animated: true, completion: nil)
     }
     
@@ -188,64 +194,86 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
     
-
     
+    //======================
+    // MARK: - SWIPE GESTURE
+    //======================
+    
+    
+    /// Swipe gesture portrait device orientation
+    /// - Parameter sender: UISwipeGestureRecognizer
     @IBAction private func didSwipePortrait(_ sender: UISwipeGestureRecognizer) {
         if UIDevice.current.orientation.isPortrait {
-            
-            var frame = blueStackView.frame
-            frame.origin.y -= 700.0
-            
-            UIView.animate(withDuration: 0.4) {
-                self.blueStackView.frame = frame
-                self.blueStackView.alpha = 0
-            }
+            swipeAnimation()
             swipeToShare()
         }
-        
-        
     }
     
+    /// Swipe gesture landscape device orientation
+    /// - Parameter sender: UISwipeGestureRecognizer
     @IBAction private func didSwipeLandscape(_ sender:UISwipeGestureRecognizer) {
         if UIDevice.current.orientation.isLandscape {
-            initialCenter = blueStackView.center
-            
-            var frame = blueStackView.frame
-            frame.origin.x -= 700.0
-            
-            UIView.animate(withDuration: 0.4) {
-                self.blueStackView.frame = frame
-                self.blueStackView.alpha = 0
-            }
+            swipeAnimation()
             swipeToShare()
-            
-            
         }
     }
     
     
-    /// UIActivityViewController for swiped blue StackView
+    /// Animation for the swipe gesture
+    private func swipeAnimation(){
+        if UIDevice.current.orientation.isPortrait  {
+            var frame = blueStackView.frame
+            frame.origin.y -= 700.0
+            UIView.animate(withDuration: 0.2) {
+                self.blueStackView.frame = frame
+                self.blueStackView.alpha = 0
+            }
+            
+        } else if UIDevice.current.orientation.isLandscape {
+            
+            initialCenter = blueStackView.frame
+            var frame = blueStackView.frame
+            frame.origin.x -= 700.0
+            UIView.animate(withDuration: 0.2) {
+                self.blueStackView.frame = frame
+                self.blueStackView.alpha = 0
+            }
+        }
+        
+    }
+    
+    
+    //======================
+    // MARK: - SHARE PHOTOS
+    //======================
+    
+    /// UIActivityViewController for swiped blueStackView
     private func swipeToShare() {
         // transform blueView in image
         let blueViewImage = blueView.toImage()
         // share blueView
-        let vc = UIActivityViewController(activityItems: [blueViewImage], applicationActivities: nil)
-        vc.popoverPresentationController?.sourceView = self.blueView
-        present(vc, animated: true)
-        vc.completionWithItemsHandler = { activity, success, items, error in
+        let activity = UIActivityViewController(activityItems: [blueViewImage], applicationActivities: nil)
+        activity.popoverPresentationController?.sourceView = self.blueView
+        present(activity, animated: true)
+        activity.completionWithItemsHandler = { activity, success, items, error in
             self.reinstateBlueStackView()
         }
         
     }
     
     
+    //======================
+    // MARK: - SWIPE BACK AFTER SHARING
+    //======================
+    
+    
+    /// Reposisioning blueStackView after sharing
     private func reinstateBlueStackView() {
-        
-        if UIDevice.current.orientation.isPortrait  {
+        // blueStackView is coming from the top
+        if UIDevice.current.orientation.isPortrait {
             blueStackView.center.y -= 700
             reinstateAnimation()
-            
-            
+            // blueStackView is coming from the left
         } else if UIDevice.current.orientation.isLandscape {
             blueStackView.center.x -= 700
             reinstateAnimation()
@@ -253,15 +281,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    
+    /// Animation for repositioning the blueStackView
     private func reinstateAnimation() {
         if UIDevice.current.orientation.isPortrait  {
-            UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6) {
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6) {
                 self.blueStackView.center = self.view.center
                 self.blueStackView.alpha = 1
             }
-        } else if UIDevice.current.orientation.isLandscape {
-            UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6) {
-                self.blueStackView.center = self.initialCenter
+            
+        } else if UIDevice.current.orientation.isLandscape{
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6) {
+                self.blueStackView.frame = self.initialCenter
                 self.blueStackView.alpha = 1
             }
             

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -22,20 +22,20 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstaGrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGd-Le-jVE">
-                                <rect key="frame" x="155.66666666666666" y="87" width="118.66666666666666" height="39"/>
+                                <rect key="frame" x="130.66666666666666" y="87" width="118.66666666666666" height="39"/>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="aog-Ib-ojZ" userLabel="BlueStackView">
-                                <rect key="frame" x="40" y="256.66666666666669" width="350" height="419.00000000000006"/>
+                                <rect key="frame" x="40" y="241.66666666666663" width="300" height="369"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="vIJ-Hk-Hqg" userLabel="SwipeStackView">
-                                        <rect key="frame" x="95.000000000000014" y="0.0" width="160.33333333333337" height="56"/>
+                                        <rect key="frame" x="70.000000000000014" y="0.0" width="160.33333333333337" height="56"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="D2o-cE-7KJ">
                                                 <rect key="frame" x="73" y="0.0" width="14" height="14"/>
@@ -46,7 +46,7 @@
                                                 <variation key="heightClass=compact" image="Arrow Left"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGv-ZN-pZS">
-                                                <rect key="frame" x="0.0" y="27" width="160.33333333333334" height="29"/>
+                                                <rect key="frame" x="0.0" y="27.000000000000028" width="160.33333333333334" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="UWd-J8-kxF"/>
                                                 </constraints>
@@ -64,16 +64,16 @@
                                         <variation key="heightClass=compact" axis="vertical"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUG-uq-tHh" userLabel="BlueView" customClass="BlueView" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="69" width="350" height="350"/>
+                                        <rect key="frame" x="0.0" y="69.000000000000028" width="300" height="300"/>
                                         <subviews>
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QZ5-Ve-4iC" userLabel="TopSquareStackView">
-                                                <rect key="frame" x="15" y="15" width="320" height="152.33333333333334"/>
+                                                <rect key="frame" x="15" y="14.999999999999993" width="270" height="127.33333333333331"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4S-rQ-YAV" userLabel="TopLeft" customClass="UIButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="152.66666666666666" height="152.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="127.33333333333333"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bJ-lN-NgD">
-                                                                <rect key="frame" x="59" y="59" width="34.333333333333343" height="34.333333333333343"/>
+                                                                <rect key="frame" x="46.666666666666671" y="46.333333333333314" width="34.333333333333329" height="34.333333333333343"/>
                                                                 <accessibility key="accessibilityConfiguration">
                                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                                 </accessibility>
@@ -104,10 +104,10 @@
                                                         </connections>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryp-cp-rZf" userLabel="TopRight" customClass="UIButton">
-                                                        <rect key="frame" x="167.66666666666663" y="0.0" width="152.33333333333337" height="152.33333333333334"/>
+                                                        <rect key="frame" x="142.66666666666666" y="0.0" width="127.33333333333334" height="127.33333333333333"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oe3-1X-QVu">
-                                                                <rect key="frame" x="59.000000000000028" y="59" width="34.333333333333343" height="34.333333333333343"/>
+                                                                <rect key="frame" x="46.333333333333343" y="46.333333333333314" width="34.333333333333343" height="34.333333333333343"/>
                                                                 <accessibility key="accessibilityConfiguration">
                                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                                 </accessibility>
@@ -136,13 +136,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EtU-MM-ruC" userLabel="BottomSquareStackView">
-                                                <rect key="frame" x="15" y="182.33333333333331" width="320" height="152.66666666666669"/>
+                                                <rect key="frame" x="15" y="157.33333333333331" width="270" height="127.66666666666669"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYn-WY-CiS" userLabel="BottomLeft" customClass="UIButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="152.66666666666666" height="152.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="127.66666666666667"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pq0-Bg-qXl">
-                                                                <rect key="frame" x="59" y="59" width="34.333333333333343" height="34.333333333333343"/>
+                                                                <rect key="frame" x="46.666666666666671" y="46.666666666666629" width="34.333333333333329" height="34.333333333333343"/>
                                                                 <accessibility key="accessibilityConfiguration">
                                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                                 </accessibility>
@@ -169,10 +169,10 @@
                                                         </connections>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxe-tZ-rc6" userLabel="BottomRight" customClass="UIButton">
-                                                        <rect key="frame" x="167.66666666666663" y="0.0" width="152.33333333333337" height="152.66666666666666"/>
+                                                        <rect key="frame" x="142.66666666666666" y="0.0" width="127.33333333333334" height="127.66666666666667"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzs-nh-bdr">
-                                                                <rect key="frame" x="59.000000000000028" y="59" width="34.333333333333343" height="34.333333333333343"/>
+                                                                <rect key="frame" x="46.333333333333343" y="46.666666666666629" width="34.333333333333343" height="34.333333333333343"/>
                                                                 <accessibility key="accessibilityConfiguration">
                                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                                 </accessibility>
@@ -211,14 +211,9 @@
                                             <constraint firstItem="EtU-MM-ruC" firstAttribute="top" secondItem="QZ5-Ve-4iC" secondAttribute="bottom" constant="15" id="MWz-8J-saB"/>
                                             <constraint firstItem="EtU-MM-ruC" firstAttribute="leading" secondItem="qUG-uq-tHh" secondAttribute="leading" constant="15" id="Rje-Z2-x63"/>
                                             <constraint firstItem="QZ5-Ve-4iC" firstAttribute="leading" secondItem="qUG-uq-tHh" secondAttribute="leading" constant="15" id="Ued-np-MUJ"/>
-                                            <constraint firstAttribute="width" constant="300" id="VDh-r4-KkJ"/>
+                                            <constraint firstAttribute="width" constant="300" id="W17-Hv-vAB"/>
                                             <constraint firstAttribute="width" secondItem="qUG-uq-tHh" secondAttribute="height" multiplier="1:1" id="kfW-Xe-QLq"/>
                                         </constraints>
-                                        <variation key="heightClass=regular">
-                                            <mask key="constraints">
-                                                <exclude reference="VDh-r4-KkJ"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <outlet property="bottomLeft" destination="uYn-WY-CiS" id="8w6-By-xTW"/>
                                             <outlet property="bottomRight" destination="Rxe-tZ-rc6" id="kUA-3f-e3n"/>
@@ -238,7 +233,7 @@
                                 </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZAl-h7-Liq" userLabel="BottomIconStackView">
-                                <rect key="frame" x="48" y="788" width="334" height="80"/>
+                                <rect key="frame" x="48" y="708" width="284" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wff-Eh-3jZ" userLabel="LeftButton">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -248,72 +243,47 @@
                                         </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="wff-Eh-3jZ" secondAttribute="height" multiplier="1:1" id="0PM-Pc-viL"/>
-                                            <constraint firstAttribute="width" constant="80" id="98D-Sz-TmX"/>
-                                            <constraint firstAttribute="height" constant="80" id="iC1-1Z-lAy"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="Layout 1"/>
                                         <state key="selected" image="Selected"/>
                                         <state key="highlighted" image="Selected"/>
-                                        <variation key="heightClass=compact">
-                                            <mask key="constraints">
-                                                <exclude reference="iC1-1Z-lAy"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular">
-                                            <mask key="constraints">
-                                                <exclude reference="98D-Sz-TmX"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <action selector="didTapLeftButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="zDx-Xv-cB8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seB-F9-nAJ" userLabel="CenterButton">
-                                        <rect key="frame" x="127" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="102" y="0.0" width="80" height="80"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" image="YES"/>
                                         </accessibility>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="seB-F9-nAJ" secondAttribute="height" multiplier="1:1" id="6A8-c8-E4o"/>
-                                            <constraint firstAttribute="width" constant="80" id="HXm-5R-XLB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="Layout 2"/>
                                         <state key="selected" image="Selected"/>
                                         <state key="highlighted" image="Selected"/>
-                                        <variation key="heightClass=regular">
-                                            <mask key="constraints">
-                                                <exclude reference="HXm-5R-XLB"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <action selector="didTapCenterButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="O7S-Z1-9Ii"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAz-X5-clw" userLabel="RightButton">
-                                        <rect key="frame" x="254" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="204" y="0.0" width="80" height="80"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" image="YES"/>
                                         </accessibility>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="1tK-fp-8SM"/>
                                             <constraint firstAttribute="width" secondItem="yAz-X5-clw" secondAttribute="height" multiplier="1:1" id="OgN-Yb-9eR"/>
-                                            <constraint firstAttribute="height" constant="80" id="WLm-yu-X2P"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="Layout 3"/>
                                         <state key="selected" image="Selected"/>
                                         <state key="highlighted" image="Selected"/>
-                                        <variation key="heightClass=regular">
-                                            <mask key="constraints">
-                                                <exclude reference="1tK-fp-8SM"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <action selector="didTapRightButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="9BS-Td-zY0"/>
                                         </connections>
