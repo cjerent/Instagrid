@@ -8,6 +8,7 @@
 import UIKit
 
 class BlueView: UIView {
+    //BlueView Square
     @IBOutlet private var topLeft: UIView!
     @IBOutlet private var topRight: UIView!
     @IBOutlet private var bottomLeft: UIView!

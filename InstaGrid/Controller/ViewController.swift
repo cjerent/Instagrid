@@ -18,36 +18,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // BlueView customized view
     @IBOutlet weak private var blueView: BlueView!
     
-    //BlueView buttons
-    @IBOutlet private var topLeftSquare: UIButton!
-    @IBOutlet private var topRightSquare: UIButton!
-    @IBOutlet private var bottomLeftSquare: UIButton!
-    @IBOutlet private var bottomRightSquare: UIButton!
-    private var currentSquare: UIButton!
+    //BlueView square buttons and plus buttons
+    //--Square buttons
+    @IBOutlet private var topLeftSquareButton: UIButton!
+    @IBOutlet private var topRightSquareButton: UIButton!
+    @IBOutlet private var bottomLeftSquareButton: UIButton!
+    @IBOutlet private var bottomRightSquareButton: UIButton!
+//    private var currentSquare: UIButton!
+    //--Plus Buttons
+    @IBOutlet private var topLeftPlusButton: UIButton!
+    @IBOutlet private var topRightPlusButton: UIButton!
+    @IBOutlet private var bottomLeftPlusButton: UIButton!
+    @IBOutlet private var bottomRightPlusButton: UIButton!
+//    private var currentPlus: UIButton!
     
-    @IBOutlet private var topLeftPlus: UIButton!
-    @IBOutlet private var topRightPlus: UIButton!
-    @IBOutlet private var bottomLeftPlus: UIButton!
-    @IBOutlet private var bottomRightPlus: UIButton!
-    private var currentPlus: UIButton!
+    private let photoPickerController = UIImagePickerController()
+
     
-    private var photoPickerTopLeft = UIImagePickerController()
-    private var photoPickerTopRight = UIImagePickerController()
-    private var photoPickerBottomLeft = UIImagePickerController()
-    private var photoPickerBottomRight = UIImagePickerController()
-    
-    
+    // BlueStackView
     @IBOutlet weak private var blueStackView: UIStackView!
-    private var initialCenter: CGRect = .zero
+    private var initialCenter: CGPoint = .zero
     
-    
+//    @IBOutlet var blueStackViewConstraintY: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoPickerTopLeft.delegate = self
-        photoPickerTopRight.delegate = self
-        photoPickerBottomLeft.delegate = self
-        photoPickerBottomRight.delegate = self
+        photoPickerController.delegate = self
         blueStackView.center = view.center
         
         
@@ -61,10 +57,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     /// Layout button selected
     /// - Parameter btn: left, center or right button
     private func selected(btn: UIButton) {
-        UIView.animate(withDuration: 0.3){
             btn.isHighlighted = true
             btn.isSelected = true
-        }
     }
     
     /// Layout button unselected
@@ -72,14 +66,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     ///   - btn1: left, center or right button
     ///   - btn2: left, center or right button
     private func unSelected(btn1: UIButton, btn2: UIButton){
-        
-        UIView.animate(withDuration: 0.3){
             btn1.isSelected = false
             btn2.isSelected = false
             btn1.isHighlighted = false
             btn2.isHighlighted = false
-        }
-        
     }
     
     /// Tap left layout button
@@ -89,7 +79,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /// Apply left layout
     private func applyLeftLayout() {
-        
         blueView.style = .left
         selected(btn: leftButton)
         unSelected(btn1: centerButton, btn2: rightButton)
@@ -120,7 +109,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         selected(btn: rightButton)
         unSelected(btn1: centerButton, btn2: leftButton)
     }
-    
+
     
     //======================
     // MARK: - PHOTO PICKER
@@ -129,42 +118,46 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /// pick top left square or left plus button
     @IBAction private func pickTopLeft() {
-        pickPhotos(picker: photoPickerTopLeft)
-        currentSquare = topLeftSquare
-        currentPlus = topLeftPlus
+        photoPickerController.view.tag = 0
+        pickPhotos(photoPickerController)
+        
+//        currentSquare = topLeftSquare
+//        currentPlus = topLeftPlus
     }
     
     /// pick top right square or right plus button
     @IBAction private func pickTopRight() {
-        pickPhotos(picker: photoPickerTopRight)
-        currentSquare = topRightSquare
-        currentPlus = topRightPlus
-        
+        photoPickerController.view.tag = 1
+        pickPhotos(photoPickerController)
+//        currentSquare = topRightSquare
+//        currentPlus = topRightPlus
+//
     }
     
     /// pick bottom left square or bottom left plus button
     @IBAction private func pickBottomLeft() {
-        pickPhotos(picker: photoPickerBottomLeft)
-        currentSquare = bottomLeftSquare
-        currentPlus = bottomLeftPlus
+        photoPickerController.view.tag = 2
+        pickPhotos(photoPickerController)
+//        currentSquare = bottomLeftSquare
+//        currentPlus = bottomLeftPlus
         
     }
     
     /// pick bottom right square or bottom right plus button
     @IBAction private func pickBottomRight() {
-        pickPhotos(picker: photoPickerBottomRight)
-        currentSquare = bottomRightSquare
-        currentPlus = bottomRightPlus
+        photoPickerController.view.tag = 3
+        pickPhotos(photoPickerController)
+//        currentSquare = bottomRightSquare
+//        currentPlus = bottomRightPlus
         
     }
     
     /// Photo picker
     /// - Parameter picker: UIImagePickerController variable
-    private func pickPhotos(picker: UIImagePickerController) {
-        picker.sourceType = .photoLibrary
-        picker.allowsEditing = true
-        present(picker, animated: true, completion: nil)
-        
+    private func pickPhotos(_ picker: UIImagePickerController) {
+            picker.sourceType = .photoLibrary
+            picker.allowsEditing = true
+            present(picker, animated: true, completion: nil)
     }
     
     /// Hide plus button when image preview
@@ -179,10 +172,36 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     ///   - info: IUImagePickerController.infoKey
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedPhoto = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            currentSquare.imageView?.contentMode = .scaleAspectFill
-            currentSquare.imageView?.clipsToBounds = true
-            currentSquare.setImage(pickedPhoto, for: .normal)
-            hidden(currentPlus)
+            switch picker.view.tag {
+                case 0:
+                    topLeftSquareButton.imageView?.contentMode = .scaleAspectFill
+                    topLeftSquareButton.imageView?.clipsToBounds = true
+                    topLeftSquareButton.setImage(pickedPhoto, for: .normal)
+                    hidden(topLeftPlusButton)
+                case 1:
+                    topRightSquareButton.imageView?.contentMode = .scaleAspectFill
+                    topRightSquareButton.imageView?.clipsToBounds = true
+                    topRightSquareButton.setImage(pickedPhoto, for: .normal)
+                    hidden(topRightPlusButton)
+                case 2:
+                    bottomLeftSquareButton.imageView?.contentMode = .scaleAspectFill
+                    bottomLeftSquareButton.imageView?.clipsToBounds = true
+                    bottomLeftSquareButton.setImage(pickedPhoto, for: .normal)
+                    hidden(bottomLeftPlusButton)
+                case 3:
+                    bottomRightSquareButton.imageView?.contentMode = .scaleAspectFill
+                    bottomRightSquareButton.imageView?.clipsToBounds = true
+                    bottomRightSquareButton.setImage(pickedPhoto, for: .normal)
+                    hidden(bottomRightPlusButton)
+                default:
+                    break
+                    
+            }
+//            currentSquare.imageView?.contentMode = .scaleAspectFill
+//            currentSquare.imageView?.clipsToBounds = true
+//            currentSquare.setImage(pickedPhoto, for: .normal)
+//            hidden(currentPlus)
+////            photoPickerBottomRight.view.tag
         }
         dismiss(animated: true, completion: nil)
     }
@@ -221,7 +240,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /// Animation for the swipe gesture
     private func swipeAnimation(){
-        if UIDevice.current.orientation.isPortrait  {
+        if UIDevice.current.orientation.isPortrait {
             var frame = blueStackView.frame
             frame.origin.y -= 700.0
             UIView.animate(withDuration: 0.2) {
@@ -231,7 +250,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         } else if UIDevice.current.orientation.isLandscape {
             
-            initialCenter = blueStackView.frame
+            initialCenter = blueStackView.center
             var frame = blueStackView.frame
             frame.origin.x -= 700.0
             UIView.animate(withDuration: 0.2) {
@@ -292,7 +311,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         } else if UIDevice.current.orientation.isLandscape{
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6) {
-                self.blueStackView.frame = self.initialCenter
+                self.blueStackView.center = self.initialCenter
                 self.blueStackView.alpha = 1
             }
             
