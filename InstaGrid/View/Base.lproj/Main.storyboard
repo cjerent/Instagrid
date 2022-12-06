@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_72" orientation="landscape" appearance="light"/>
+    <device id="retina6_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -22,23 +22,23 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstaGrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="932" height="430"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGd-Le-jVE">
-                                <rect key="frame" x="406.66666666666669" y="70" width="118.66666666666669" height="39"/>
+                                <rect key="frame" x="388.66666666666669" y="55" width="118.66666666666669" height="39"/>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="aog-Ib-ojZ" userLabel="BlueStackView">
-                                <rect key="frame" x="10" y="119" width="752" height="311"/>
+                                <rect key="frame" x="10" y="103.99999999999997" width="716" height="334.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="vIJ-Hk-Hqg" userLabel="SwipeStackView">
-                                        <rect key="frame" x="0.0" y="127.66666666666666" width="428" height="56"/>
+                                        <rect key="frame" x="0.0" y="139.33333333333334" width="368.66666666666669" height="56"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="D2o-cE-7KJ">
-                                                <rect key="frame" x="207" y="0.0" width="14" height="14"/>
+                                                <rect key="frame" x="177.33333333333334" y="0.0" width="14" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="AOZ-2j-55A"/>
                                                     <constraint firstAttribute="width" secondItem="D2o-cE-7KJ" secondAttribute="height" multiplier="1:1" id="MsJ-5X-rDf"/>
@@ -46,7 +46,7 @@
                                                 <variation key="heightClass=compact" image="Arrow Left"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGv-ZN-pZS">
-                                                <rect key="frame" x="129" y="27.000000000000028" width="170" height="29"/>
+                                                <rect key="frame" x="99.333333333333314" y="26.999999999999972" width="170" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="UWd-J8-kxF"/>
                                                 </constraints>
@@ -64,16 +64,16 @@
                                         <variation key="heightClass=compact" axis="vertical"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUG-uq-tHh" userLabel="BlueView" customClass="BlueView" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="441" y="0.0" width="311" height="311"/>
+                                        <rect key="frame" x="381.66666666666674" y="0.0" width="334.33333333333326" height="334.33333333333331"/>
                                         <subviews>
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QZ5-Ve-4iC" userLabel="TopSquareStackView">
-                                                <rect key="frame" x="15" y="15" width="281" height="133"/>
+                                                <rect key="frame" x="15" y="15" width="304.33333333333331" height="144.66666666666666"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4S-rQ-YAV" userLabel="TopLeft" customClass="UIButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="133" height="133"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="144.66666666666666" height="144.66666666666666"/>
                                                         <subviews>
                                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bJ-lN-NgD">
-                                                                <rect key="frame" x="49.333333333333371" y="49.333333333333343" width="34.333333333333343" height="34.333333333333343"/>
+                                                                <rect key="frame" x="55.333333333333314" y="55.333333333333343" width="34.333333333333343" height="34.333333333333343"/>
                                                                 <accessibility key="accessibilityConfiguration">
                                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                                 </accessibility>
@@ -97,17 +97,17 @@
                                                         <constraints>
                                                             <constraint firstItem="2bJ-lN-NgD" firstAttribute="centerY" secondItem="b4S-rQ-YAV" secondAttribute="centerY" id="1IB-uN-XP3"/>
                                                             <constraint firstItem="2bJ-lN-NgD" firstAttribute="centerX" secondItem="b4S-rQ-YAV" secondAttribute="centerX" id="8oJ-Tg-Dc2"/>
-                                                            <constraint firstAttribute="width" secondItem="b4S-rQ-YAV" secondAttribute="height" multiplier="1:1" id="cjj-FO-8A6"/>
+                                                            <constraint firstAttribute="width" secondItem="b4S-rQ-YAV" secondAttribute="height" multiplier="1:1" priority="750" id="cjj-FO-8A6"/>
                                                         </constraints>
                                                         <connections>
                                                             <action selector="pickTopLeft" destination="BYZ-38-t0r" eventType="touchUpInside" id="psY-tR-jzc"/>
                                                         </connections>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryp-cp-rZf" userLabel="TopRight" customClass="UIButton">
-                                                        <rect key="frame" x="148" y="0.0" width="133" height="133"/>
+                                                        <rect key="frame" x="159.66666666666669" y="0.0" width="144.66666666666669" height="144.66666666666666"/>
                                                         <subviews>
                                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oe3-1X-QVu">
-                                                                <rect key="frame" x="49.333333333333371" y="49.333333333333343" width="34.333333333333343" height="34.333333333333343"/>
+                                                                <rect key="frame" x="55.333333333333258" y="55.333333333333343" width="34.333333333333343" height="34.333333333333343"/>
                                                                 <accessibility key="accessibilityConfiguration">
                                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                                 </accessibility>
@@ -130,7 +130,7 @@
                                                         <constraints>
                                                             <constraint firstItem="Oe3-1X-QVu" firstAttribute="centerY" secondItem="ryp-cp-rZf" secondAttribute="centerY" id="KoB-3T-lFx"/>
                                                             <constraint firstItem="Oe3-1X-QVu" firstAttribute="centerX" secondItem="ryp-cp-rZf" secondAttribute="centerX" id="ZaM-WM-8E9"/>
-                                                            <constraint firstAttribute="width" secondItem="ryp-cp-rZf" secondAttribute="height" multiplier="1:1" id="uc2-TM-ibm"/>
+                                                            <constraint firstAttribute="width" secondItem="ryp-cp-rZf" secondAttribute="height" multiplier="1:1" priority="750" id="uc2-TM-ibm"/>
                                                         </constraints>
                                                         <connections>
                                                             <action selector="pickTopRight" destination="BYZ-38-t0r" eventType="touchUpInside" id="PyD-kt-xLx"/>
@@ -139,13 +139,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EtU-MM-ruC" userLabel="BottomSquareStackView">
-                                                <rect key="frame" x="15" y="163" width="281" height="133"/>
+                                                <rect key="frame" x="15" y="174.66666666666669" width="304.33333333333331" height="144.66666666666669"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYn-WY-CiS" userLabel="BottomLeft" customClass="UIButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="133" height="133"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="144.66666666666666" height="144.66666666666666"/>
                                                         <subviews>
                                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pq0-Bg-qXl">
-                                                                <rect key="frame" x="49.333333333333371" y="49.333333333333314" width="34.333333333333343" height="34.333333333333343"/>
+                                                                <rect key="frame" x="55.333333333333314" y="55.333333333333314" width="34.333333333333343" height="34.333333333333343"/>
                                                                 <accessibility key="accessibilityConfiguration">
                                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                                 </accessibility>
@@ -166,7 +166,7 @@
                                                             <accessibilityTraits key="traits" button="YES"/>
                                                         </accessibility>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="uYn-WY-CiS" secondAttribute="height" multiplier="1:1" id="WV9-OE-6lb"/>
+                                                            <constraint firstAttribute="width" secondItem="uYn-WY-CiS" secondAttribute="height" multiplier="1:1" priority="750" id="WV9-OE-6lb"/>
                                                             <constraint firstItem="pq0-Bg-qXl" firstAttribute="centerX" secondItem="uYn-WY-CiS" secondAttribute="centerX" id="bLj-Ss-NuW"/>
                                                             <constraint firstItem="pq0-Bg-qXl" firstAttribute="centerY" secondItem="uYn-WY-CiS" secondAttribute="centerY" id="j0d-XP-wcg"/>
                                                         </constraints>
@@ -175,10 +175,10 @@
                                                         </connections>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxe-tZ-rc6" userLabel="BottomRight" customClass="UIButton">
-                                                        <rect key="frame" x="148" y="0.0" width="133" height="133"/>
+                                                        <rect key="frame" x="159.66666666666669" y="0.0" width="144.66666666666669" height="144.66666666666666"/>
                                                         <subviews>
                                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzs-nh-bdr">
-                                                                <rect key="frame" x="49.333333333333371" y="49.333333333333314" width="34.333333333333343" height="34.333333333333343"/>
+                                                                <rect key="frame" x="55.333333333333258" y="55.333333333333314" width="34.333333333333343" height="34.333333333333343"/>
                                                                 <accessibility key="accessibilityConfiguration">
                                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                                 </accessibility>
@@ -199,7 +199,7 @@
                                                             <accessibilityTraits key="traits" button="YES"/>
                                                         </accessibility>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Rxe-tZ-rc6" secondAttribute="height" multiplier="1:1" id="CLp-Rh-wXg"/>
+                                                            <constraint firstAttribute="width" secondItem="Rxe-tZ-rc6" secondAttribute="height" multiplier="1:1" priority="750" id="CLp-Rh-wXg"/>
                                                             <constraint firstItem="yzs-nh-bdr" firstAttribute="centerX" secondItem="Rxe-tZ-rc6" secondAttribute="centerX" id="Eqs-7h-CXs"/>
                                                             <constraint firstItem="yzs-nh-bdr" firstAttribute="centerY" secondItem="Rxe-tZ-rc6" secondAttribute="centerY" id="RW4-nD-s9k"/>
                                                         </constraints>
@@ -244,7 +244,13 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="qUG-uq-tHh" secondAttribute="trailing" id="UgV-Nh-fP6"/>
+                                    <constraint firstItem="qUG-uq-tHh" firstAttribute="centerY" secondItem="aog-Ib-ojZ" secondAttribute="centerY" id="mNi-4S-I4r"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="mNi-4S-I4r"/>
+                                    </mask>
+                                </variation>
                                 <variation key="heightClass=compact" axis="horizontal"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="wQY-xV-jbw" appends="YES" id="M72-5a-sob"/>
@@ -252,7 +258,7 @@
                                 </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZAl-h7-Liq" userLabel="BottomIconStackView">
-                                <rect key="frame" x="812" y="119" width="80" height="311"/>
+                                <rect key="frame" x="776" y="103.99999999999997" width="80" height="334.33333333333326"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wff-Eh-3jZ" userLabel="LeftButton">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -273,7 +279,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seB-F9-nAJ" userLabel="CenterButton">
-                                        <rect key="frame" x="0.0" y="115.66666666666666" width="80" height="80"/>
+                                        <rect key="frame" x="0.0" y="127.33333333333334" width="80" height="80"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" image="YES"/>
                                         </accessibility>
@@ -291,7 +297,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAz-X5-clw" userLabel="RightButton">
-                                        <rect key="frame" x="0.0" y="231" width="80" height="80"/>
+                                        <rect key="frame" x="0.0" y="254.33333333333331" width="80" height="80"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" image="YES"/>
                                         </accessibility>
@@ -340,7 +346,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZAl-h7-Liq" secondAttribute="trailing" constant="40" id="HpF-Pj-SlW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZAl-h7-Liq" secondAttribute="bottom" constant="31" id="ILa-Ko-awU"/>
                             <constraint firstItem="aog-Ib-ojZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="JYC-Ai-USK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aog-Ib-ojZ" secondAttribute="bottom" priority="750" constant="15" id="U43-KM-s9b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aog-Ib-ojZ" secondAttribute="bottom" constant="15" id="U43-KM-s9b"/>
                             <constraint firstItem="ZAl-h7-Liq" firstAttribute="bottom" secondItem="aog-Ib-ojZ" secondAttribute="bottom" id="X3j-ut-WIw"/>
                             <constraint firstItem="sGd-Le-jVE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Zki-ez-cTE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aog-Ib-ojZ" secondAttribute="trailing" constant="140" id="gCd-ds-xzc"/>
@@ -363,6 +369,8 @@
                                 <exclude reference="gCd-ds-xzc"/>
                                 <exclude reference="3nf-rr-QqD"/>
                                 <exclude reference="uuk-rz-PNM"/>
+                                <exclude reference="X3j-ut-WIw"/>
+                                <exclude reference="rfv-jW-QUu"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -375,7 +383,9 @@
                                 <exclude reference="hcU-rP-UIM"/>
                                 <exclude reference="veA-kp-7Vu"/>
                                 <exclude reference="HkI-HP-z4V"/>
+                                <include reference="X3j-ut-WIw"/>
                                 <exclude reference="qDJ-MG-zEj"/>
+                                <include reference="rfv-jW-QUu"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
