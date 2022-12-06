@@ -276,32 +276,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // blueStackView is coming from the top
         if UIDevice.current.orientation.isPortrait {
             blueStackView.center.y -= 700
-            reinstateAnimation()
             // blueStackView is coming from the left
         } else if UIDevice.current.orientation.isLandscape {
             blueStackView.center.x -= 700
-            reinstateAnimation()
-            
         }
+        reinstateAnimation()
     }
     
     
-    /// Animation for repositioning the blueStackView
+    /// Animation for repositioning the blueStackView after sharing
     private func reinstateAnimation() {
         if UIDevice.current.orientation.isPortrait  {
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6) {
                 self.blueStackView.center = self.view.center
-                self.blueStackView.alpha = 1
             }
             
         } else if UIDevice.current.orientation.isLandscape{
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6) {
                 self.blueStackView.center = self.initialCenter
-                self.blueStackView.alpha = 1
+                
             }
             
         }
-        
+        self.blueStackView.alpha = 1
     }
     
 }
