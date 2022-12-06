@@ -62,19 +62,11 @@
 		528DA261291121760043BB13 /* InstaGrid */ = {
 			isa = PBXGroup;
 			children = (
-				528DA2762911220F0043BB13 /* Model */,
 				528DA2772911221B0043BB13 /* Controller */,
 				528DA278291122350043BB13 /* View */,
 				528DA279291122730043BB13 /* Supporting Files */,
 			);
 			path = InstaGrid;
-			sourceTree = "<group>";
-		};
-		528DA2762911220F0043BB13 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		528DA2772911221B0043BB13 /* Controller */ = {
