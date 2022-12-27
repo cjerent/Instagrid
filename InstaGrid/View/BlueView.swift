@@ -9,10 +9,10 @@ import UIKit
 
 class BlueView: UIView {
     //BlueView Square
-    @IBOutlet private var topLeft: UIView!
-    @IBOutlet private var topRight: UIView!
-    @IBOutlet private var bottomLeft: UIView!
-    @IBOutlet private var bottomRight: UIView!
+    @IBOutlet private var topLeftSquareButton: UIButton!
+    @IBOutlet private var topRightSquareButton: UIButton!
+    @IBOutlet private var bottomLeftSquareButton: UIButton!
+    @IBOutlet private var bottomRightSquareButton: UIButton!
     
     
     enum Style {
@@ -25,27 +25,26 @@ class BlueView: UIView {
         }
     }
     
-    
     /// Set blueView layout
     /// - Parameter style: Style
     private func setStyle(style: Style) {
         UIView.animate(withDuration: 0.2){
             switch style {
                 case .right:
-                    self.topLeft.isHidden = false
-                    self.topRight.isHidden = false
-                    self.bottomLeft.isHidden = false
-                    self.bottomRight.isHidden = false
+                    self.topLeftSquareButton.isHidden = false
+                    self.topRightSquareButton.isHidden = false
+                    self.bottomLeftSquareButton.isHidden = false
+                    self.bottomRightSquareButton.isHidden = false
                 case .center:
-                    self.topLeft.isHidden = false
-                    self.topRight.isHidden = false
-                    self.bottomLeft.isHidden = false
-                    self.bottomRight.isHidden = true
+                    self.topLeftSquareButton.isHidden = false
+                    self.topRightSquareButton.isHidden = false
+                    self.bottomLeftSquareButton.isHidden = false
+                    self.bottomRightSquareButton.isHidden = true
                 case .left:
-                    self.topLeft.isHidden = false
-                    self.topRight.isHidden = true
-                    self.bottomLeft.isHidden = false
-                    self.bottomRight.isHidden = false
+                    self.topLeftSquareButton.isHidden = false
+                    self.topRightSquareButton.isHidden = true
+                    self.bottomLeftSquareButton.isHidden = false
+                    self.bottomRightSquareButton.isHidden = false
             }
         }
     }
